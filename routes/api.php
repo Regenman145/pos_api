@@ -12,8 +12,11 @@ use App\Http\Controllers\ReportController;
 use App\Http\Controllers\ActivityLogController;
 
 // AUTHENTICATION ROUTES
-Route::post('/login', [AuthController::class, 'login']);
-Route::middleware('auth:sanctum')->post('/logout', [AuthController::class, 'logout']);
+Route::controller(AuthController::class)->group(function () {
+    Route::post('/register', 'register');
+    Route::post('/login', 'login');
+    Route::middleware('auth:sanctum')->post('/logout', 'logout');
+});
 // USER MANAGEMENT ROUTES (Hanya Business Owner)
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/users', [UserController::class, 'index']); // Lihat daftar user (dengan pagination)
