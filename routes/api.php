@@ -17,7 +17,7 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('/login', 'login');
     Route::middleware('auth:sanctum')->post('/logout', 'logout');
 });
-// USER MANAGEMENT ROUTES (Hanya Business Owner)
+// USER MANAGEMENT ROUTES (Hanya Business Owner & Admin)
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/users', [UserController::class, 'index']); // Lihat daftar user (dengan pagination)
     Route::post('/users', [UserController::class, 'store']); // Tambah user
