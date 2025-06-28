@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Inventory extends Model
 {
     use HasFactory;
-    protected $fllable = ['name', 'quantity', 'vendor', 'price', 'status'];
+    protected $fillable = ['name', 'quantity', 'vendor', 'price', 'status'];
     // Relasi: Inventory memiliki banyak transaction items
     public function transactionItems()
     {

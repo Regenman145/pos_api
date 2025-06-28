@@ -36,7 +36,8 @@ class InventoryController extends Controller
             'name' => 'required|string|max:255',
             'quantity' => 'required|integer|min:1', // Menggunakan quantity
             'vendor' => 'nullable|string|max:255',
-            'price' => 'required|numeric|min:0'
+            'price' => 'required|numeric',
+            'name' => 'required|string|max:255',
         ]);
         $item = Inventory::create($request->only(['name', 'quantity', 'vendor', 'price']));
         return response()->json($item, 201);

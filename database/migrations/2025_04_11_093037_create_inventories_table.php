@@ -17,7 +17,7 @@ return new class extends Migration
             $table->integer('quantity');
             $table->string('vendor')->nullable();
             $table->decimal('price', 10, 2);
-            $table->enum('status', ['valid', 'invalid'])->default('valid');
+            $table->enum('status', ['available', 'not available'])->default('available');
             $table->timestamps();
         });
     }
