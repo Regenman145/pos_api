@@ -26,7 +26,7 @@ class AuthController extends Controller
         }
 
         //user ditemukan dan password cocok lalu buat token
-        $token = $user->createToken('auth_token')->plainTextToken;
+        $token = $user->createToken('flutter-token')->plainTextToken;
 
         //response berhasil
         return response()->json([
